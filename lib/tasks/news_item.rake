@@ -5,14 +5,12 @@ namespace "new_items" do
   task fetch: :environment do
     newsapi = News.new(ENV['NEWS_API_KEY'])
 
-    date_today =  Date.today.strftime("%Y-%m-%d").to_s
-
+    date_today =  Date.yesterday.strftime("%Y-%m-%d").to_s
     all_articles = newsapi.get_everything(
       sources: 'google-news-ru',
       from: date_today,
       to: date_today
     )
-
     all_articles.each do |article|
       NewsItem.create!(
         title: article.title,
@@ -24,6 +22,6 @@ namespace "new_items" do
       )
     end
 
-
+    p "Done."
   end
 end
