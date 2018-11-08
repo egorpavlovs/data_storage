@@ -8,7 +8,8 @@ class BaseApiController < ApplicationController
   private
 
     def parse_request
-      @json = JSON.parse(request.body.read)
+      pp ["params", params]
+      @json = JSON.parse(params[:search_field])
     end
 
     def find_news_item
