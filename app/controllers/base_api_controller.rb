@@ -10,8 +10,8 @@ class BaseApiController < ApplicationController
 
     def parse_request
       pp ["params", params]
-      pp ["params[:search_field]", params[:search_field]]
-      pp ["JSON.parse(params[:search_field])", JSON.parse(params[:search_field])]
+      pp ["params[search_field]", params["search_field"]]
+      pp ["JSON.parse(params[search_field])", JSON.parse(params["search_field"])]
       pp ["JSON.parse(params)", JSON.parse(params)]
       @json = JSON.parse(params[:search_field])
     end
