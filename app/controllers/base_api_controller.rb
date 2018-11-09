@@ -8,12 +8,6 @@ class BaseApiController < ApplicationController
 
   private
 
-    # def parse_request
-    #   pp ["params", params]
-    #   pp ["params[search_field]", params["search_field"]]
-    #   @json = params["search_field"]
-    # end
-
     def find_news_item
       @news_items = NewsItem.where("news_items.title ilike ?", "%#{params["search_field"]}%")
     end
