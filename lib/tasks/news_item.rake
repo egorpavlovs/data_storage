@@ -22,6 +22,6 @@ namespace "new_items" do
       )
     end
 
-    p "Done."
+    puts "Done."
   end
 end
