@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   #   post '/', action: 'show'
   # end
 
-  match '/api', to: 'base_apir#show', via: :post
+  match '/api', to: 'base_api#show', via: :post
 end
