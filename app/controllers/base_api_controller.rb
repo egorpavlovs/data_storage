@@ -1,4 +1,5 @@
 class BaseApiController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :parse_request, :find_news_item
 
   def show
