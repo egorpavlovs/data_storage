@@ -1,8 +1,9 @@
 class ApiController < ApplicationController
-  protect_from_forgery with: :null_session
+   skip_before_action :verify_authenticity_token, only: %i(show)
 
   def show
-    render json: NewsItem.where("news_items.title ilike ?", "%#{params["search_field"]}%")
+    news_item = NewsItemService.search(params["search_field"])
+    render json: news_item
   end
 
   def index

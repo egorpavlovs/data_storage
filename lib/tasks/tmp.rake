@@ -1,6 +1,7 @@
 namespace :tmp do
 
-  BASE_URL = 'https://pavlov-data-storage.herokuapp.com/'
+  # BASE_URL = 'https://pavlov-data-storage.herokuapp.com/'
+  BASE_URL = 'http://localhost:3000/'
   desc "Get one news item"
   task search_news_item: :environment do
     conn = Faraday.new(url: BASE_URL) do |faraday|
@@ -9,7 +10,7 @@ namespace :tmp do
       faraday.adapter  Faraday.default_adapter
     end
 
-    req = {search_field: "Bendable"}
+    req = {search_field: "Bendable Brilliant United Nations"}
     resp = conn.post "/api/search_news_item", req
     pp JSON.parse(resp.body)
 

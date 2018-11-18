@@ -20,6 +20,8 @@ gem 'news-api'
 
 gem 'rails_admin', '~> 1.3'
 
+gem 'graphql'
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'byebug'
