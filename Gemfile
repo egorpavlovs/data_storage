@@ -21,6 +21,7 @@ gem 'news-api'
 gem 'rails_admin', '~> 1.3'
 
 gem 'graphql'
+gem 'graphiql-rails'
 
 group :development, :test do
   gem 'dotenv-rails'

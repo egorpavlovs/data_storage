@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "rails_admin/main#dashboard"
+
+  mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  post "/graphql", to: "graphql#execute"
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   scope '/api' do
     match '/search_news_item', to: 'api#show', via: :post
